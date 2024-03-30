@@ -2,8 +2,8 @@ import React from 'react';
 
 import Bell from '@/assets/icons/bell.svg';
 import House from '@/assets/icons/house-floor.svg';
-import User from '@/assets/icons/user-alt.svg';
 import {useRoute} from '@react-navigation/native';
+import {Icon} from '@ui-kitten/components';
 
 const BottomTabBarIcon = ({
   color,
@@ -21,7 +21,14 @@ const BottomTabBarIcon = ({
     case 'Notifications':
       return <Bell width={size} height={size} color={color} />;
     case 'Settings':
-      return <User width={size} height={size} color={color} />;
+      // return <User width={size} height={size} color={color} />;
+      return (
+        <Icon
+          name="settings-2-outline"
+          fill={color}
+          style={{width: size, height: size}}
+        />
+      );
     default:
       return null;
   }

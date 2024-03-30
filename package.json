@@ -18,11 +18,14 @@
     "launch-ios-simulator": "xcrun simctl boot 'iPhone 15 Pro'"
   },
   "dependencies": {
+    "@eva-design/eva": "^2.2.0",
     "@react-navigation/bottom-tabs": "^6.5.20",
     "@react-navigation/native": "^6.1.17",
     "@react-navigation/native-stack": "^6.9.26",
     "@reduxjs/toolkit": "^2.2.2",
     "@tanstack/react-query": "^5.28.8",
+    "@ui-kitten/components": "^5.3.1",
+    "@ui-kitten/eva-icons": "^5.3.1",
     "axios": "^1.6.8",
     "i18next": "^23.10.1",
     "react": "18.2.0",
