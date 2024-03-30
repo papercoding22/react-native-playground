@@ -11,6 +11,7 @@ import BottomTabNavigator from './BottomTabNavigator';
 import {Button, Text, View, useColorScheme} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import useTheme from '@/theme/useTheme';
+import {LoginScreen} from '@/screens';
 
 const RootStack = createNativeStackNavigator();
 
@@ -42,12 +43,21 @@ function AppNavigator() {
     },
   };
 
+  // TODO: Implement authentication flow later
+  const isAuthenticated = false;
+
   return (
     <NavigationContainer theme={overridedTheme}>
       <RootStack.Navigator>
-        <RootStack.Group screenOptions={{headerShown: false}}>
-          <RootStack.Screen name="Root" component={BottomTabNavigator} />
-        </RootStack.Group>
+        {isAuthenticated ? (
+          <RootStack.Group screenOptions={{headerShown: false}}>
+            <RootStack.Screen name="Root" component={BottomTabNavigator} />
+          </RootStack.Group>
+        ) : (
+          <RootStack.Group screenOptions={{headerShown: false}}>
+            <RootStack.Screen name="Login" component={LoginScreen} />
+          </RootStack.Group>
+        )}
         <RootStack.Group screenOptions={{presentation: 'modal'}}>
           <RootStack.Screen name="MyModal" component={ModalScreen} />
         </RootStack.Group>

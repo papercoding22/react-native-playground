@@ -8,7 +8,7 @@ import {EvaIconsPack} from '@ui-kitten/eva-icons';
 import ThemeProvider from '@/theme/ThemeProvider';
 import {store} from '@/store';
 import {ServiceProvider} from '@/providers';
-import AppNavigator from '@/navigation/AppNavigator';
+import {AppNavigator} from '@/navigation';
 
 import '@/translations';
 

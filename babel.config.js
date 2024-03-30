@@ -1,5 +1,5 @@
 module.exports = {
-  presets: ['module:@react-native/babel-preset'],
+  presets: ['module:@react-native/babel-preset', 'nativewind/babel'],
   plugins: [
     [
       'module-resolver',
@@ -12,7 +12,6 @@ module.exports = {
       },
     ],
     'inline-dotenv',
-    'nativewind/babel',
     'react-native-reanimated/plugin', // needs to be last
   ],
 };
