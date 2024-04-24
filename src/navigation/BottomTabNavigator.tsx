@@ -5,6 +5,7 @@ import App from '@/App';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import BottomTabBarIcon from './BottomTabBarIcon';
+import useTheme from '@/theme/useTheme';
 
 const Tab = createBottomTabNavigator();
 const SettingsStack = createNativeStackNavigator();
@@ -24,10 +25,14 @@ const SettingsStackScreen = () => {
 };
 
 const BottomTabNavigator = () => {
+  const theme = useTheme();
+
   return (
     <Tab.Navigator
       screenOptions={{
         headerShown: false,
+        tabBarActiveBackgroundColor: theme.colors.surface,
+        tabBarInactiveBackgroundColor: theme.colors.surface,
         tabBarIcon: BottomTabBarIcon,
       }}>
       <Tab.Screen name="Home" component={App} />

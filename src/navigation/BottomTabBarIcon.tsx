@@ -4,28 +4,29 @@ import Bell from '@/assets/icons/bell.svg';
 import House from '@/assets/icons/house-floor.svg';
 import {useRoute} from '@react-navigation/native';
 import {Icon} from '@ui-kitten/components';
+import useTheme from '@/theme/useTheme';
 
 const BottomTabBarIcon = ({
-  color,
   size,
 }: {
   focused: boolean;
   color: string;
   size: number;
 }) => {
+  const theme = useTheme();
   const route = useRoute();
 
   switch (route.name) {
     case 'Home':
-      return <House width={size} height={size} color={color} />;
+      return <House width={size} height={size} color={theme.colors.primary} />;
     case 'Notifications':
-      return <Bell width={size} height={size} color={color} />;
+      return <Bell width={size} height={size} color={theme.colors.primary} />;
     case 'Settings':
       // return <User width={size} height={size} color={color} />;
       return (
         <Icon
           name="settings-2-outline"
-          fill={color}
+          fill={theme.colors.primary}
           style={{width: size, height: size}}
         />
       );

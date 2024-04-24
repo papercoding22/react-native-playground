@@ -40,11 +40,13 @@ function AppNavigator() {
     colors: {
       ...navigationTheme.colors,
       primary: theme.colors.primary,
+      background: theme.colors.surface,
+      card: theme.colors.surface,
     },
   };
 
   // TODO: Implement authentication flow later
-  const isAuthenticated = false;
+  const isAuthenticated = true;
 
   return (
     <NavigationContainer theme={overridedTheme}>
