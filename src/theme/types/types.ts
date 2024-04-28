@@ -1,5 +1,8 @@
 // -------------------
 // Colors
+
+import {TextStyle} from 'react-native';
+
 // -------------------
 interface Colors {
   // FAB, buttons, active states
@@ -64,12 +67,10 @@ interface Elevations {
 // Typography
 // -------------------
 
-interface Typography {
-  font: string;
-  fontWeight: string;
-  fontSize: string | number;
-  lineHeight: string | number;
-}
+type Typography = Pick<
+  TextStyle,
+  'fontFamily' | 'fontSize' | 'letterSpacing' | 'lineHeight' | 'fontWeight'
+>;
 
 // -------------------
 // Type Scale
@@ -110,7 +111,7 @@ interface ShapeScale {
 // -------------------
 interface Theme {
   colors: Colors;
-  typography: TypeScale;
+  typeScale: TypeScale;
   shape: ShapeScale;
   elevations: Elevations;
 }

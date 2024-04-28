@@ -10,6 +10,8 @@ import {
 
 import {typeface} from './type-face';
 
+// System Theme -> Reference Values
+// For example: system primary color -> primaryPalette.primary
 const light: Theme = {
   colors: {
     primary: primaryPalette.primary,
@@ -41,96 +43,111 @@ const light: Theme = {
     shadow: neutralPalette['neutral-low-90'],
     scrim: neutralPalette['neutral-low-90'],
   },
-  typography: {
+  typeScale: {
     displaySmall: {
-      font: typeface.brand,
+      fontFamily: typeface.brand,
       fontWeight: typeface.weightRegular,
       fontSize: 36,
       lineHeight: 44,
+      letterSpacing: -0.25,
     },
     displayMedium: {
-      font: typeface.brand,
+      fontFamily: typeface.brand,
       fontWeight: typeface.weightRegular,
       fontSize: 45,
       lineHeight: 52,
+      letterSpacing: 0,
     },
     displayLarge: {
-      font: typeface.brand,
+      fontFamily: typeface.brand,
       fontWeight: typeface.weightRegular,
-      fontSize: 56,
+      fontSize: 57,
       lineHeight: 64,
+      letterSpacing: 0,
     },
     headLineSmall: {
-      font: typeface.brand,
+      fontFamily: typeface.brand,
       fontWeight: typeface.weightRegular,
       fontSize: 24,
       lineHeight: 32,
+      letterSpacing: 0,
     },
     headLineMedium: {
-      font: typeface.brand,
+      fontFamily: typeface.brand,
       fontWeight: typeface.weightRegular,
       fontSize: 28,
       lineHeight: 36,
+      letterSpacing: 0,
     },
     headLineLarge: {
-      font: typeface.brand,
+      fontFamily: typeface.brand,
       fontWeight: typeface.weightRegular,
       fontSize: 32,
       lineHeight: 40,
+      letterSpacing: 0,
     },
     titleSmall: {
-      font: typeface.brand,
-      fontWeight: typeface.weightRegular,
+      fontFamily: typeface.brand,
+      fontWeight: typeface.weightMedium,
       fontSize: 14,
       lineHeight: 20,
+      letterSpacing: 0.1,
     },
     titleMedium: {
-      font: typeface.brand,
+      fontFamily: typeface.brand,
       fontWeight: typeface.weightMedium,
       fontSize: 16,
       lineHeight: 24,
+      letterSpacing: 0.15,
     },
     titleLarge: {
-      font: typeface.brand,
+      fontFamily: typeface.brand,
       fontWeight: typeface.weightRegular,
       fontSize: 22,
       lineHeight: 28,
+      letterSpacing: 0,
     },
     bodySmall: {
-      font: typeface.brand,
+      fontFamily: typeface.brand,
       fontWeight: typeface.weightRegular,
       fontSize: 12,
       lineHeight: 16,
+      letterSpacing: 0.4,
     },
     bodyMedium: {
-      font: typeface.brand,
+      fontFamily: typeface.brand,
       fontWeight: typeface.weightRegular,
       fontSize: 14,
       lineHeight: 20,
+      letterSpacing: 0.25,
     },
     bodyLarge: {
-      font: typeface.brand,
+      fontFamily: typeface.brand,
       fontWeight: typeface.weightRegular,
       fontSize: 16,
       lineHeight: 24,
+      letterSpacing: 0.5,
     },
     labelSmall: {
-      font: typeface.brand,
+      fontFamily: typeface.brand,
       fontWeight: typeface.weightMedium,
       fontSize: 11,
       lineHeight: 16,
+      letterSpacing: 0.5,
     },
     labelMedium: {
-      font: typeface.brand,
+      fontFamily: typeface.brand,
       fontWeight: typeface.weightMedium,
       fontSize: 12,
       lineHeight: 16,
+      letterSpacing: 0.5,
     },
     labelLarge: {
-      font: typeface.brand,
+      fontFamily: typeface.brand,
       fontWeight: typeface.weightMedium,
       fontSize: 14,
       lineHeight: 20,
+      letterSpacing: 0.1,
     },
   },
   shape: {
