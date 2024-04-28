@@ -1,9 +1,10 @@
 // ThemeProvider.tsx
-import React, {PropsWithChildren, createContext} from 'react';
+import React, {PropsWithChildren, createContext, useMemo} from 'react';
 
 import * as eva from '@eva-design/eva';
-import {ApplicationProvider} from '@ui-kitten/components';
+import {ApplicationProvider as UIKittenProvider} from '@ui-kitten/components';
 
+import {useColorScheme} from 'react-native';
 import theme from './theme';
 import {Theme} from './types/types';
 
@@ -14,11 +15,17 @@ export const ThemeContext = createContext<ThemeContextProps>(
 );
 
 const ThemeProvider: React.FC<PropsWithChildren> = ({children}) => {
+  const colorScheme = useColorScheme();
+
+  const uiKittenTheme = useMemo(() => {
+    return colorScheme === 'dark' ? eva.dark : eva.light;
+  }, [colorScheme]);
+
   return (
     <ThemeContext.Provider value={theme.light}>
-      <ApplicationProvider {...eva} theme={eva.light}>
+      <UIKittenProvider {...eva} theme={uiKittenTheme}>
         {children}
-      </ApplicationProvider>
+      </UIKittenProvider>
     </ThemeContext.Provider>
   );
 };

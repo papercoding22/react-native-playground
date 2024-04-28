@@ -41,7 +41,7 @@ function AppNavigator() {
       ...navigationTheme.colors,
       primary: theme.colors.primary,
       background: theme.colors.surface,
-      card: theme.colors.surface,
+      card: theme.colors.surfaceContainer,
     },
   };
 

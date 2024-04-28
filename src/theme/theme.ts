@@ -6,7 +6,7 @@ import {
   tertiaryPalette,
   errorPalette,
   neutralPalette,
-} from './static-colors';
+} from './color-palattes';
 
 import {typeface} from './type-face';
 
@@ -28,12 +28,12 @@ const light: Theme = {
     onError: errorPalette['error-high-100'],
     errorContainer: errorPalette['error-high-60'],
     onErrorContainer: errorPalette['error-low-70'],
-    surface: neutralPalette.surface,
+    surface: neutralPalette['neutral-high-10'],
     onSurface: neutralPalette['neutral-low-100'],
     onSurfaceVariant: neutralPalette['neutral-low-80'],
-    surfaceContainerLowest: neutralPalette['neutral-low-30'],
-    surfaceContainerLow: neutralPalette['neutral-low-20'],
-    surfaceContainer: neutralPalette['neutral-low-10'],
+    surfaceContainerLowest: neutralPalette['neutral-low-20'],
+    surfaceContainerLow: neutralPalette['neutral-low-10'],
+    surfaceContainer: neutralPalette.neutral,
     surfaceContainerHigh: neutralPalette['neutral-high-10'],
     surfaceContainerHighest: neutralPalette['neutral-high-20'],
     outline: neutralPalette['neutral-low-50'],

@@ -1,5 +1,3 @@
-import {Palette} from './types/referenceTypes';
-
 const primaryPalette = {
   'primary-low-100': '#000000',
   'primary-low-90': '#020b18',
@@ -24,7 +22,7 @@ const primaryPalette = {
   'primary-high-100': '#ffffff',
 };
 
-const secondaryPalette: Palette = {
+const secondaryPalette = {
   'secondary-low-100': '#ffffff',
   'secondary-low-90': '#eff5fe',
   'secondary-low-80': '#dfebfd',
@@ -48,7 +46,7 @@ const secondaryPalette: Palette = {
   'secondary-high-100': '#000000',
 };
 
-const tertiaryPalette: Palette = {
+const tertiaryPalette = {
   'tertiary-low-100': '#000000',
   'tertiary-low-90': '#0b1210',
   'tertiary-low-80': '#162520',
@@ -72,7 +70,7 @@ const tertiaryPalette: Palette = {
   'tertiary-high-100': '#ffffff',
 };
 
-const errorPalette: Palette = {
+const errorPalette = {
   'error-low-100': '#000000',
   'error-low-90': '#120403',
   'error-low-80': '#240806',
@@ -96,7 +94,7 @@ const errorPalette: Palette = {
   'error-high-100': '#ffffff',
 };
 
-const neutralPalette: Palette = {
+const neutralPalette = {
   'neutral-low-100': '#000000',
   'neutral-low-90': '#171819',
   'neutral-low-80': '#2e3033',

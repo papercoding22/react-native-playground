@@ -25,14 +25,10 @@ const SettingsStackScreen = () => {
 };
 
 const BottomTabNavigator = () => {
-  const theme = useTheme();
-
   return (
     <Tab.Navigator
       screenOptions={{
         headerShown: false,
-        tabBarActiveBackgroundColor: theme.colors.surface,
-        tabBarInactiveBackgroundColor: theme.colors.surface,
         tabBarIcon: BottomTabBarIcon,
       }}>
       <Tab.Screen name="Home" component={App} />

@@ -1,4 +1,6 @@
-// Define a type for colors
+// -------------------
+// Colors
+// -------------------
 interface Colors {
   // FAB, buttons, active states
   primary: string;
@@ -25,8 +27,9 @@ interface Colors {
   errorContainer: string;
   onErrorContainer: string;
 
-  // Background, header, tab bar, card container
+  // Background
   surface: string;
+  // Tab bar, card container, header
   surfaceContainerLowest: string;
   surfaceContainerLow: string;
   surfaceContainer: string;
@@ -45,6 +48,9 @@ interface Colors {
   scrim: string;
 }
 
+// -------------------
+// Elevation
+// -------------------
 interface Elevations {
   level0: number;
   level1: number;
@@ -54,7 +60,10 @@ interface Elevations {
   level5: number;
 }
 
+// -------------------
 // Typography
+// -------------------
+
 interface Typography {
   font: string;
   fontWeight: string;
@@ -62,6 +71,9 @@ interface Typography {
   lineHeight: string | number;
 }
 
+// -------------------
+// Type Scale
+// -------------------
 interface TypeScale {
   displayLarge: Typography;
   displayMedium: Typography;
@@ -80,7 +92,9 @@ interface TypeScale {
   labelSmall: Typography;
 }
 
+// -------------------
 // Shape
+// -------------------
 interface ShapeScale {
   none: number;
   extraSmall: number;
@@ -91,7 +105,9 @@ interface ShapeScale {
   full: number;
 }
 
-// Define a type for the theme
+// -------------------
+// Theme
+// -------------------
 interface Theme {
   colors: Colors;
   typography: TypeScale;
