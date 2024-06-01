@@ -32,7 +32,7 @@ const light: Theme = {
     onErrorContainer: errorPalette['error-low-70'],
     surface: neutralPalette['neutral-high-10'],
     onSurface: neutralPalette['neutral-low-100'],
-    onSurfaceVariant: neutralPalette['neutral-low-80'],
+    onSurfaceVariant: neutralPalette['neutral-low-60'],
     surfaceContainerLowest: neutralPalette['neutral-low-20'],
     surfaceContainerLow: neutralPalette['neutral-low-10'],
     surfaceContainer: neutralPalette.neutral,

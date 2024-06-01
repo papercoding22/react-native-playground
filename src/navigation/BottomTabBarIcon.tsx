@@ -1,13 +1,39 @@
 import React from 'react';
-
-import Bell from '@/assets/icons/bell.svg';
-import House from '@/assets/icons/house-floor.svg';
 import {useRoute} from '@react-navigation/native';
-import {Icon} from '@ui-kitten/components';
+
+import HomeFocused from '@/assets/icons/home-filled.svg';
+import HomeUnfocused from '@/assets/icons/home-outlined.svg';
+import SearchUnfocused from '@/assets/icons/search-outlined.svg';
+import SearchFocused from '@/assets/icons/search-xl-outlined.svg';
+import CommunityFocused from '@/assets/icons/newspaper-filled.svg';
+import CommunityUnfocused from '@/assets/icons/newspaper-outlined.svg';
+import ActivityFocused from '@/assets/icons/bell-filled.svg';
+import ActivityUnfocused from '@/assets/icons/bell-outlined.svg';
+
 import useTheme from '@/theme/useTheme';
+
+const Bars = {
+  Home: {
+    Focused: HomeFocused,
+    Unfocused: HomeUnfocused,
+  },
+  Search: {
+    Focused: SearchFocused,
+    Unfocused: SearchUnfocused,
+  },
+  Community: {
+    Focused: CommunityFocused,
+    Unfocused: CommunityUnfocused,
+  },
+  Activity: {
+    Focused: ActivityFocused,
+    Unfocused: ActivityUnfocused,
+  },
+};
 
 const BottomTabBarIcon = ({
   size,
+  focused,
 }: {
   focused: boolean;
   color: string;
@@ -16,23 +42,10 @@ const BottomTabBarIcon = ({
   const theme = useTheme();
   const route = useRoute();
 
-  switch (route.name) {
-    case 'Home':
-      return <House width={size} height={size} color={theme.colors.primary} />;
-    case 'Notifications':
-      return <Bell width={size} height={size} color={theme.colors.primary} />;
-    case 'Settings':
-      // return <User width={size} height={size} color={color} />;
-      return (
-        <Icon
-          name="settings-2-outline"
-          fill={theme.colors.primary}
-          style={{width: size, height: size}}
-        />
-      );
-    default:
-      return null;
-  }
+  const Icon =
+    Bars[route.name as keyof typeof Bars][focused ? 'Focused' : 'Unfocused'];
+
+  return <Icon width={size} height={size} color={theme.colors.onSurface} />;
 };
 
 export default BottomTabBarIcon;
