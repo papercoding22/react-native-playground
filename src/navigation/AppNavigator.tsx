@@ -40,8 +40,8 @@ function AppNavigator() {
     ...navigationTheme,
     colors: {
       ...navigationTheme.colors,
-      primary: theme.colors.primary,
-      background: theme.colors.surface,
+      primary: theme.navigationTheme.primary,
+      background: theme.navigationTheme.background,
       card: theme.colors.surfaceContainer,
     },
   };

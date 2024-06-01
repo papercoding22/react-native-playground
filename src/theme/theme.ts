@@ -6,43 +6,11 @@ import {
   tertiaryPalette,
   errorPalette,
   neutralPalette,
-} from './color-palattes';
+} from './color-palatte';
 
 import {typeface} from './type-face';
 
-// System Theme -> Reference Values
-// For example: system primary color -> primaryPalette.primary
-const light: Theme = {
-  colors: {
-    primary: primaryPalette.primary,
-    onPrimary: primaryPalette['primary-high-100'],
-    primaryContainer: primaryPalette['primary-high-60'],
-    onPrimaryContainer: primaryPalette['primary-low-70'],
-    secondary: secondaryPalette.secondary,
-    onSecondary: secondaryPalette['secondary-high-100'],
-    secondaryContainer: secondaryPalette['secondary-high-60'],
-    onSecondaryContainer: secondaryPalette['secondary-low-70'],
-    tertiary: tertiaryPalette.tertiary,
-    onTertiary: tertiaryPalette['tertiary-high-100'],
-    tertiaryContainer: tertiaryPalette['tertiary-high-60'],
-    onTertiaryContainer: tertiaryPalette['tertiary-low-70'],
-    error: errorPalette.error,
-    onError: errorPalette['error-high-100'],
-    errorContainer: errorPalette['error-high-60'],
-    onErrorContainer: errorPalette['error-low-70'],
-    surface: neutralPalette['neutral-high-10'],
-    onSurface: neutralPalette['neutral-low-100'],
-    onSurfaceVariant: neutralPalette['neutral-low-60'],
-    surfaceContainerLowest: neutralPalette['neutral-low-20'],
-    surfaceContainerLow: neutralPalette['neutral-low-10'],
-    surfaceContainer: neutralPalette.neutral,
-    surfaceContainerHigh: neutralPalette['neutral-high-10'],
-    surfaceContainerHighest: neutralPalette['neutral-high-20'],
-    outline: neutralPalette['neutral-low-50'],
-    outlineVariant: neutralPalette['neutral-low-40'],
-    shadow: neutralPalette['neutral-low-90'],
-    scrim: neutralPalette['neutral-low-90'],
-  },
+const base = {
   typeScale: {
     displaySmall: {
       fontFamily: typeface.brand,
@@ -169,14 +137,75 @@ const light: Theme = {
   },
 };
 
-// TODO: Implement later
-// const dark: Theme = {
-//   colors: {},
-//   typography: {},
-//   shape: {},
-//   elevations: {},
-// };
+const light: Theme = {
+  ...base,
+  colors: {
+    primary: primaryPalette.primary, // #196eee
+    onPrimary: primaryPalette['primary-high-100'], // #ffffff
+    primaryContainer: primaryPalette['primary-high-60'], // #a3c5f8
+    onPrimaryContainer: primaryPalette['primary-low-70'], // #072147
+    secondary: secondaryPalette.secondary, // #5e9af3
+    onSecondary: secondaryPalette['secondary-high-100'], // #000000
+    secondaryContainer: secondaryPalette['secondary-high-60'], // #263e61
+    onSecondaryContainer: secondaryPalette['secondary-low-70'], // #cfe1fb
+    tertiary: tertiaryPalette.tertiary, // #6eb99f
+    onTertiary: tertiaryPalette['tertiary-high-100'], // #ffffff
+    tertiaryContainer: tertiaryPalette['tertiary-high-60'], // #c5e3d9
+    onTertiaryContainer: tertiaryPalette['tertiary-low-70'], // #213730
+    error: errorPalette.error, // #B3261E
+    onError: errorPalette['error-high-100'], // #ffffff
+    errorContainer: errorPalette['error-high-60'], // #e1a8a5
+    onErrorContainer: errorPalette['error-low-70'], // #360b09
+    surface: neutralPalette['neutral-high-10'], // #eaf2fd
+    onSurface: neutralPalette['neutral-low-100'], // #000000
+    onSurfaceVariant: neutralPalette['neutral-low-60'], // #5d6065
+    surfaceContainerLowest: neutralPalette['neutral-low-20'], // #bac1ca
+    surfaceContainerLow: neutralPalette['neutral-low-10'], // #d1d9e4
+    surfaceContainer: neutralPalette.neutral, // #e8f1fd
+    surfaceContainerHigh: neutralPalette['neutral-high-10'], // #eaf2fd
+    surfaceContainerHighest: neutralPalette['neutral-high-20'], // #edf4fd
+    outline: neutralPalette['neutral-low-50'], // #74797f
+    outlineVariant: neutralPalette['neutral-low-40'], // #8b9198
+    shadow: neutralPalette['neutral-low-90'], // #171819
+    scrim: neutralPalette['neutral-low-90'], // #171819
+  },
+};
+
+const dark: Theme = {
+  ...base,
+  colors: {
+    primary: `${primaryPalette['primary-high-20']}`,
+    onPrimary: `${primaryPalette['primary-low-100']}`,
+    primaryContainer: `${primaryPalette['primary-low-50']}`,
+    onPrimaryContainer: `${primaryPalette['primary-high-90']}`,
+    secondary: `${secondaryPalette['secondary-high-20']}`,
+    onSecondary: `${secondaryPalette['secondary-low-100']}`,
+    secondaryContainer: `${secondaryPalette['secondary-low-50']}`,
+    onSecondaryContainer: `${secondaryPalette['secondary-high-90']}`,
+    tertiary: `${tertiaryPalette['tertiary-high-20']}`,
+    onTertiary: `${tertiaryPalette['tertiary-low-100']}`,
+    tertiaryContainer: `${tertiaryPalette['tertiary-low-50']}`,
+    onTertiaryContainer: `${tertiaryPalette['tertiary-high-90']}`,
+    error: `${errorPalette['error-high-20']}`,
+    onError: `${errorPalette['error-low-100']}`,
+    errorContainer: `${errorPalette['error-low-50']}`,
+    onErrorContainer: `${errorPalette['error-high-90']}`,
+    surface: `${neutralPalette['neutral-low-90']}`,
+    onSurface: `${neutralPalette['neutral-high-90']}`,
+    onSurfaceVariant: `${neutralPalette['neutral-high-70']}`,
+    surfaceContainerLowest: `${neutralPalette['neutral-high-100']}`,
+    surfaceContainerLow: `${neutralPalette['neutral-high-90']}`,
+    surfaceContainer: `${neutralPalette['neutral-low-80']}`,
+    surfaceContainerHigh: `${neutralPalette['neutral-high-50']}`,
+    surfaceContainerHighest: `${neutralPalette['neutral-high-40']}`,
+    outline: `${neutralPalette['neutral-high-50']}`,
+    outlineVariant: `${neutralPalette['neutral-high-60']}`,
+    shadow: `${neutralPalette['neutral-low-100']}`,
+    scrim: `${neutralPalette['neutral-low-100']}`,
+  },
+};
 
 export default {
   light,
+  dark,
 };
