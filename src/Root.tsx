@@ -8,7 +8,7 @@ import {EvaIconsPack} from '@ui-kitten/eva-icons';
 import {ThemeProvider} from '@/theme';
 import {store} from '@/store';
 import {ServiceProvider} from '@/providers';
-import {AppNavigator} from '@/navigation';
+import {AppNavigation} from './navigation';
 
 import '@/translations';
 
@@ -23,7 +23,7 @@ function Root() {
           <ErrorBoundary>
             <ServiceProvider>
               <ThemeProvider>
-                <AppNavigator />
+                <AppNavigation />
               </ThemeProvider>
             </ServiceProvider>
           </ErrorBoundary>

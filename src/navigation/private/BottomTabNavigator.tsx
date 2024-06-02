@@ -19,7 +19,7 @@ import SearchUnfocused from '@/assets/icons/search-outlined.svg';
 import SearchFocused from '@/assets/icons/search-xl-outlined.svg';
 
 import useBottomNavigationOptions from './useBottomNavigationOptions';
-import withBaseScreenOptions from './withBaseScreenOptions';
+import withBaseScreenOptions from '../withBaseScreenOptions';
 
 const Tab = createBottomTabNavigator();
 
