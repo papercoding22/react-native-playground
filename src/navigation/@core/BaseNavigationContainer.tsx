@@ -10,7 +10,9 @@ import {useColorScheme} from 'react-native';
 
 import useTheme from '@/theme/useTheme';
 
-const BaseNavigator: React.FC<React.PropsWithChildren> = ({children}) => {
+const BaseNavigationContainer: React.FC<React.PropsWithChildren> = ({
+  children,
+}) => {
   const scheme = useColorScheme();
   const theme = useTheme();
   const navigationTheme = scheme === 'dark' ? DarkTheme : DefaultTheme;
@@ -29,4 +31,4 @@ const BaseNavigator: React.FC<React.PropsWithChildren> = ({children}) => {
   );
 };
 
-export default BaseNavigator;
+export default BaseNavigationContainer;

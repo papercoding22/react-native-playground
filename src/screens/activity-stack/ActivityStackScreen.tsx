@@ -4,8 +4,9 @@ import {
   createNativeStackNavigator,
 } from '@react-navigation/native-stack';
 import ActivityScreen from './ActivityScreen.entry';
+import {ActivityStackParamList} from './types';
 
-const ActivityStack = createNativeStackNavigator();
+const ActivityStack = createNativeStackNavigator<ActivityStackParamList>();
 
 const ActivityStackScreen: React.FC<{
   screenOptions: NativeStackNavigationOptions;

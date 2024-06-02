@@ -4,8 +4,9 @@ import {
   createNativeStackNavigator,
 } from '@react-navigation/native-stack';
 import HomeScreen from './HomeScreen.entry';
+import {HomeStackParamList} from './types';
 
-const HomeStack = createNativeStackNavigator();
+const HomeStack = createNativeStackNavigator<HomeStackParamList>();
 
 const HomeStackScreen: React.FC<{
   screenOptions: NativeStackNavigationOptions;

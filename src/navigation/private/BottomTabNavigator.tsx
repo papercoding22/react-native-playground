@@ -18,27 +18,29 @@ import CommunityUnfocused from '@/assets/icons/newspaper-outlined.svg';
 import SearchUnfocused from '@/assets/icons/search-outlined.svg';
 import SearchFocused from '@/assets/icons/search-xl-outlined.svg';
 
-import useBottomNavigationOptions from './useBottomNavigationOptions';
 import withBaseScreenOptions from '../withBaseScreenOptions';
+import {BottomTabParamList} from './types';
 
-const Tab = createBottomTabNavigator();
+import useBottomNavigationOptions from './useBottomNavigationOptions';
+
+const BottomTabStack = createBottomTabNavigator<BottomTabParamList>();
 
 const HomeStack = withBaseScreenOptions(HomeStackScreen);
 const SearchStack = withBaseScreenOptions(SearchStackScreen);
 const CommunityStack = withBaseScreenOptions(CommunityStackScreen);
 const ActivityStack = withBaseScreenOptions(ActivityStackScreen);
 
-export const TabMap: {
-  [key: string]: {
-    name: string;
-    tabLabel: string;
-    icons: {
-      active: React.FC<SvgProps>;
-      inactive: React.FC<SvgProps>;
-    };
-    component: React.FC;
+interface TabItem {
+  name: keyof BottomTabParamList;
+  tabLabel: string;
+  icons: {
+    active: React.FC<SvgProps>;
+    inactive: React.FC<SvgProps>;
   };
-} = {
+  component: React.FC;
+}
+
+export const TabMap: Record<string, TabItem> = {
   HomeStack: {
     name: 'HomeStack',
     tabLabel: 'Home',
@@ -84,9 +86,9 @@ const BottomTabNavigator = () => {
   const bottomNavigationOptions = useBottomNavigationOptions(theme);
 
   return (
-    <Tab.Navigator screenOptions={bottomNavigationOptions}>
+    <BottomTabStack.Navigator screenOptions={bottomNavigationOptions}>
       {Tabs.map(({name, tabLabel, component}) => (
-        <Tab.Screen
+        <BottomTabStack.Screen
           options={{
             tabBarLabel: tabLabel,
           }}
@@ -95,7 +97,7 @@ const BottomTabNavigator = () => {
           component={component}
         />
       ))}
-    </Tab.Navigator>
+    </BottomTabStack.Navigator>
   );
 };
 

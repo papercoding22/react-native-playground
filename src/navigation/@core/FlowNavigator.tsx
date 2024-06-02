@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import BaseNavigator from './BaseNavigator';
+import BaseNavigationContainer from './BaseNavigationContainer';
 
 interface Props {
   isPublic: boolean;
@@ -14,10 +14,10 @@ const FlowNavigator: React.FC<Props> = ({
   privateNavigator,
 }) => {
   return (
-    <BaseNavigator>
+    <BaseNavigationContainer>
       {isPublic ? privateNavigator : null}
       {!isPublic ? publicNavigator : null}
-    </BaseNavigator>
+    </BaseNavigationContainer>
   );
 };
 

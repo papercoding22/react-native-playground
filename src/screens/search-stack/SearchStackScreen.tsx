@@ -4,8 +4,9 @@ import {
   createNativeStackNavigator,
 } from '@react-navigation/native-stack';
 import SearchScreen from './SearchScreen.entry';
+import {SearchStackParamList} from './types';
 
-const SearchStack = createNativeStackNavigator();
+const SearchStack = createNativeStackNavigator<SearchStackParamList>();
 
 const SearchStackScreen: React.FC<{
   screenOptions: NativeStackNavigationOptions;
