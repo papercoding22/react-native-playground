@@ -15,6 +15,7 @@ import useTheme from '@/theme/useTheme';
 import {LoginScreen} from '@/screens';
 
 const RootStack = createNativeStackNavigator();
+const PublicStack = createNativeStackNavigator();
 
 function ModalScreen() {
   const navigation = useNavigation();
@@ -27,11 +28,6 @@ function ModalScreen() {
   );
 }
 
-/**
- * Root navigator of the app.
- *
- * @returns {React.ReactElement} Root navigator.
- */
 function AppNavigator() {
   const scheme = useColorScheme();
   const theme = useTheme();
@@ -51,20 +47,21 @@ function AppNavigator() {
 
   return (
     <NavigationContainer theme={overridedTheme}>
-      <RootStack.Navigator>
-        {isAuthenticated ? (
+      {isAuthenticated ? (
+        <RootStack.Navigator>
           <RootStack.Group screenOptions={{headerShown: false}}>
             <RootStack.Screen name="Root" component={BottomTabNavigator} />
           </RootStack.Group>
-        ) : (
-          <RootStack.Group screenOptions={{headerShown: false}}>
-            <RootStack.Screen name="Login" component={LoginScreen} />
+          <RootStack.Group screenOptions={{presentation: 'modal'}}>
+            <RootStack.Screen name="MyModal" component={ModalScreen} />
           </RootStack.Group>
-        )}
-        <RootStack.Group screenOptions={{presentation: 'modal'}}>
-          <RootStack.Screen name="MyModal" component={ModalScreen} />
-        </RootStack.Group>
-      </RootStack.Navigator>
+        </RootStack.Navigator>
+      ) : null}
+      {!isAuthenticated ? (
+        <PublicStack.Navigator>
+          <PublicStack.Screen name="Login" component={LoginScreen} />
+        </PublicStack.Navigator>
+      ) : null}
     </NavigationContainer>
   );
 }
