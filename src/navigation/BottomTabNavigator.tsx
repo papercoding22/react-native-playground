@@ -12,18 +12,18 @@ const Tab = createBottomTabNavigator();
 const BottomTabNavigator = () => {
   const theme = useTheme();
 
-  const tabbarOptions = React.useMemo(
-    () => ({
-      headerShown: false,
-      tabBarIcon: BottomTabBarIcon,
-      tabBarActiveTintColor: theme.colors.onSurface,
-      tabBarInactiveTintColor: theme.colors.onSurfaceVariant,
-    }),
-    [theme],
-  );
-
   return (
-    <Tab.Navigator screenOptions={tabbarOptions}>
+    <Tab.Navigator
+      screenOptions={{
+        headerShown: false,
+        tabBarIcon: BottomTabBarIcon,
+        tabBarStyle: {
+          backgroundColor: theme.bottomNavigationTheme.background,
+          borderTopWidth: 0,
+        },
+        tabBarActiveTintColor: theme.colors.onSurface,
+        tabBarInactiveTintColor: theme.colors.onSurfaceVariant,
+      }}>
       <Tab.Screen name={BottomNavItems.Home.name} component={App} />
       <Tab.Screen name={BottomNavItems.Search.name} component={App} />
       <Tab.Screen name={BottomNavItems.Community.name} component={App} />

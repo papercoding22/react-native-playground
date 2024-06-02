@@ -9,6 +9,9 @@ import theme from './theme';
 import {Theme} from './types/types';
 
 export interface ThemeContextProps extends Theme {
+  bottomNavigationTheme: {
+    background: string;
+  };
   navigationTheme: {
     primary: string;
     background: string;
@@ -23,6 +26,9 @@ export const ThemeContext = createContext<ThemeContextProps>(
 const buildComponentTheme = (rawTheme: Theme): ThemeContextProps => {
   return {
     ...rawTheme,
+    bottomNavigationTheme: {
+      background: rawTheme.colors.surfaceContainer,
+    },
     navigationTheme: {
       primary: rawTheme.colors.primary,
       background: rawTheme.colors.surface,
