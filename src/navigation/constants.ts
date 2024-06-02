@@ -7,15 +7,15 @@ export const BottomNavItems: Record<
   BottomNavItem
 > = {
   Home: {
-    name: 'Home',
+    name: 'HomeStack',
   },
   Search: {
-    name: 'Search',
+    name: 'SearchStack',
   },
   Community: {
-    name: 'Community',
+    name: 'CommunityStack',
   },
   Activity: {
-    name: 'Activity',
+    name: 'ActivityStack',
   },
 } as const;
