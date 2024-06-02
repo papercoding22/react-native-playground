@@ -4,26 +4,17 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import App from '@/App';
 import useTheme from '@/theme/useTheme';
 
-import BottomTabBarIcon from './BottomTabBarIcon';
 import {BottomNavItems} from './navigationConstants';
+import useBottomNavigationOptions from './useBottomNavigationOptions';
 
 const Tab = createBottomTabNavigator();
 
 const BottomTabNavigator = () => {
   const theme = useTheme();
+  const bottomNavigationOptions = useBottomNavigationOptions(theme);
 
   return (
-    <Tab.Navigator
-      screenOptions={{
-        headerShown: false,
-        tabBarIcon: BottomTabBarIcon,
-        tabBarStyle: {
-          backgroundColor: theme.bottomNavigationTheme.background,
-          borderTopWidth: 0,
-        },
-        tabBarActiveTintColor: theme.colors.onSurface,
-        tabBarInactiveTintColor: theme.colors.onSurfaceVariant,
-      }}>
+    <Tab.Navigator screenOptions={bottomNavigationOptions}>
       <Tab.Screen name={BottomNavItems.Home.name} component={App} />
       <Tab.Screen name={BottomNavItems.Search.name} component={App} />
       <Tab.Screen name={BottomNavItems.Community.name} component={App} />
