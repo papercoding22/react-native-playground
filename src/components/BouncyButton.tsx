@@ -1,17 +1,16 @@
 import React, {useRef} from 'react';
 import {
-  Text,
   TouchableWithoutFeedback,
   Animated,
   StyleSheet,
+  TouchableWithoutFeedbackProps,
 } from 'react-native';
 
-interface Props {
-  title: string;
-  onPress: () => void;
+interface Props extends TouchableWithoutFeedbackProps {
+  children?: React.ReactNode;
 }
 
-const BouncyButton: React.FC<Props> = ({title, onPress}) => {
+const BouncyButton: React.FC<Props> = ({children, ...rest}) => {
   const scaleValue = useRef(new Animated.Value(1)).current;
 
   const onPressIn = () => {
@@ -34,12 +33,12 @@ const BouncyButton: React.FC<Props> = ({title, onPress}) => {
 
   return (
     <TouchableWithoutFeedback
+      {...rest}
       onPressIn={onPressIn}
-      onPressOut={onPressOut}
-      onPress={onPress}>
+      onPressOut={onPressOut}>
       <Animated.View
         style={[styles.button, {transform: [{scale: scaleValue}]}]}>
-        <Text style={styles.buttonText}>{title}</Text>
+        {children}
       </Animated.View>
     </TouchableWithoutFeedback>
   );
@@ -47,14 +46,9 @@ const BouncyButton: React.FC<Props> = ({title, onPress}) => {
 
 const styles = StyleSheet.create({
   button: {
-    paddingVertical: 10,
-    paddingHorizontal: 20,
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  buttonText: {
-    color: '#fff',
-    fontSize: 16,
   },
 });
 

@@ -1,4 +1,6 @@
 import React from 'react';
+import {BouncyButton} from '@/components';
+
 import {ThemeContextProps} from '@/theme/ThemeProvider';
 import {BottomTabNavigationOptions} from '@react-navigation/bottom-tabs';
 
@@ -10,6 +12,9 @@ const useBottomNavigationOptions = (theme: ThemeContextProps) => {
       return {
         headerShown: false,
         tabBarIcon: BottomTabBarIcon,
+        tabBarButton: props => {
+          return <BouncyButton {...props} />;
+        },
         tabBarStyle: {
           backgroundColor: theme.bottomNavigationTheme.background,
           shadowColor: theme.colors.shadow,
