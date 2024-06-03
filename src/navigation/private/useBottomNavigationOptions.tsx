@@ -16,15 +16,8 @@ const useBottomNavigationOptions = (theme: ThemeContextProps) => {
           return <BouncyButton {...props} />;
         },
         tabBarStyle: {
-          backgroundColor: theme.bottomNavigationTheme.background,
-          shadowColor: theme.colors.shadow,
-          shadowOffset: {
-            width: 0,
-            height: 2,
-          },
-          shadowOpacity: 0.25,
-          shadowRadius: 3.84,
-          elevation: theme.elevations.level5,
+          ...theme.bottomTabBar.shadow,
+          backgroundColor: theme.bottomTabBar.background,
         },
         tabBarActiveTintColor: theme.colors.onSurface,
         tabBarInactiveTintColor: theme.colors.onSurfaceVariant,

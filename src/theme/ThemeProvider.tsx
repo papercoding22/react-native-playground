@@ -4,13 +4,44 @@ import React, {PropsWithChildren, createContext, useMemo} from 'react';
 import * as eva from '@eva-design/eva';
 import {ApplicationProvider as UIKittenProvider} from '@ui-kitten/components';
 
-import {ColorSchemeName, useColorScheme} from 'react-native';
+import {
+  ColorSchemeName,
+  TextStyle,
+  ViewStyle,
+  useColorScheme,
+} from 'react-native';
 import theme from './theme';
 import {Theme} from './types/types';
 
 export interface ThemeContextProps extends Theme {
-  bottomNavigationTheme: {
+  bottomTabBar: {
     background: string;
+    shadow: {
+      shadowColor: string;
+      shadowOffset: {
+        width: number;
+        height: number;
+      };
+      shadowOpacity: number;
+      shadowRadius: number;
+      elevation: number;
+    };
+  };
+  topTabBar: {
+    background: string;
+    indicatorStyle: ViewStyle;
+    focusedTextStyle: TextStyle;
+    unfocusedTextStyle: TextStyle;
+    shadow: {
+      shadowColor: string;
+      shadowOffset: {
+        width: number;
+        height: number;
+      };
+      shadowOpacity: number;
+      shadowRadius: number;
+      elevation: number;
+    };
   };
   navigationTheme: {
     primary: string;
@@ -23,11 +54,45 @@ export const ThemeContext = createContext<ThemeContextProps>(
   {} as ThemeContextProps,
 );
 
-const buildComponentTheme = (rawTheme: Theme): ThemeContextProps => {
+const buildComponentTheme = (rawTheme: Theme) => {
   return {
-    ...rawTheme,
-    bottomNavigationTheme: {
+    bottomTabBar: {
       background: rawTheme.colors.surfaceContainer,
+      shadow: {
+        shadowColor: rawTheme.colors.shadow,
+        shadowOffset: {
+          width: 0,
+          height: 1,
+        },
+        shadowOpacity: 0.18,
+        shadowRadius: 1.0,
+        elevation: rawTheme.elevations.level1,
+      },
+    },
+    topTabBar: {
+      background: rawTheme.colors.surfaceContainer,
+      indicatorStyle: {
+        backgroundColor: rawTheme.colors.primary,
+        width: 100,
+      },
+      focusedTextStyle: {
+        ...rawTheme.typeScale.titleMedium,
+        color: rawTheme.colors.onSurface,
+      },
+      unfocusedTextStyle: {
+        ...rawTheme.typeScale.titleMedium,
+        color: rawTheme.colors.onSurfaceVariant,
+      },
+      shadow: {
+        shadowColor: rawTheme.colors.shadow,
+        shadowOffset: {
+          width: 0,
+          height: 1,
+        },
+        shadowOpacity: 0.18,
+        shadowRadius: 1.0,
+        elevation: rawTheme.elevations.level1,
+      },
     },
     navigationTheme: {
       primary: rawTheme.colors.primary,
