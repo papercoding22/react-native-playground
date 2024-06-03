@@ -11,7 +11,6 @@ import {ServiceProvider} from '@/providers';
 import {AppNavigation} from './navigation';
 
 import '@/translations';
-import {SafeAreaProvider} from 'react-native-safe-area-context';
 
 const queryClient = new QueryClient();
 
