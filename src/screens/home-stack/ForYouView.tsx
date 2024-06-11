@@ -1,12 +1,8 @@
-import {View, Text} from 'react-native';
+import {Text} from '@ui-kitten/components';
 import React from 'react';
 
 const ForYouView = () => {
-  return (
-    <View>
-      <Text>ForYouView</Text>
-    </View>
-  );
+  return <Text>ForYouView</Text>;
 };
 
 export default ForYouView;

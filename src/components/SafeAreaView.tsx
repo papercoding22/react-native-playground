@@ -1,6 +1,6 @@
 import {SafeAreaView as RNSafeAreaView, ViewStyle} from 'react-native';
 import React, {PropsWithChildren} from 'react';
-import useTheme from '@/theme/useTheme';
+import {useTheme} from '@/theme';
 
 const SafeAreaView: React.FC<PropsWithChildren> = ({children}) => {
   const theme = useTheme();

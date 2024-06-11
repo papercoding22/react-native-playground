@@ -4,51 +4,11 @@ import React, {PropsWithChildren, createContext, useMemo} from 'react';
 import * as eva from '@eva-design/eva';
 import {ApplicationProvider as UIKittenProvider} from '@ui-kitten/components';
 
-import {
-  ColorSchemeName,
-  TextStyle,
-  ViewStyle,
-  useColorScheme,
-} from 'react-native';
+import {ColorSchemeName, useColorScheme} from 'react-native';
 import theme from './theme';
 import {Theme} from './types/types';
 
-export interface ThemeContextProps extends Theme {
-  bottomTabBar: {
-    background: string;
-    shadow: {
-      shadowColor: string;
-      shadowOffset: {
-        width: number;
-        height: number;
-      };
-      shadowOpacity: number;
-      shadowRadius: number;
-      elevation: number;
-    };
-  };
-  topTabBar: {
-    background: string;
-    indicatorStyle: ViewStyle;
-    focusedTextStyle: TextStyle;
-    unfocusedTextStyle: TextStyle;
-    shadow: {
-      shadowColor: string;
-      shadowOffset: {
-        width: number;
-        height: number;
-      };
-      shadowOpacity: number;
-      shadowRadius: number;
-      elevation: number;
-    };
-  };
-  navigationTheme: {
-    primary: string;
-    background: string;
-    card: string;
-  };
-}
+export interface ThemeContextProps extends Theme {}
 
 export const ThemeContext = createContext<ThemeContextProps>(
   {} as ThemeContextProps,
@@ -56,48 +16,56 @@ export const ThemeContext = createContext<ThemeContextProps>(
 
 const buildComponentTheme = (rawTheme: Theme) => {
   return {
-    bottomTabBar: {
-      background: rawTheme.colors.surfaceContainer,
-      shadow: {
-        shadowColor: rawTheme.colors.shadow,
-        shadowOffset: {
-          width: 0,
-          height: 1,
+    components: {
+      layout: {
+        background: rawTheme.colors.surface,
+      },
+      card: {
+        background: rawTheme.colors.surfaceContainer,
+      },
+      bottomTabBar: {
+        background: rawTheme.colors.surfaceContainer,
+        shadow: {
+          shadowColor: rawTheme.colors.shadow,
+          shadowOffset: {
+            width: 0,
+            height: 1,
+          },
+          shadowOpacity: 0.18,
+          shadowRadius: 1.0,
+          elevation: rawTheme.elevations.level1,
         },
-        shadowOpacity: 0.18,
-        shadowRadius: 1.0,
-        elevation: rawTheme.elevations.level1,
       },
-    },
-    topTabBar: {
-      background: rawTheme.colors.surfaceContainer,
-      indicatorStyle: {
-        backgroundColor: rawTheme.colors.primary,
-        width: 100,
-      },
-      focusedTextStyle: {
-        ...rawTheme.typeScale.titleMedium,
-        color: rawTheme.colors.onSurface,
-      },
-      unfocusedTextStyle: {
-        ...rawTheme.typeScale.titleMedium,
-        color: rawTheme.colors.onSurfaceVariant,
-      },
-      shadow: {
-        shadowColor: rawTheme.colors.shadow,
-        shadowOffset: {
-          width: 0,
-          height: 1,
+      topTabBar: {
+        background: rawTheme.colors.surfaceContainer,
+        indicatorStyle: {
+          backgroundColor: rawTheme.colors.primary,
+          width: 100,
         },
-        shadowOpacity: 0.18,
-        shadowRadius: 1.0,
-        elevation: rawTheme.elevations.level1,
+        focusedTextStyle: {
+          ...rawTheme.typeScale.titleMedium,
+          color: rawTheme.colors.onSurface,
+        },
+        unfocusedTextStyle: {
+          ...rawTheme.typeScale.titleMedium,
+          color: rawTheme.colors.onSurfaceVariant,
+        },
+        shadow: {
+          shadowColor: rawTheme.colors.shadow,
+          shadowOffset: {
+            width: 0,
+            height: 1,
+          },
+          shadowOpacity: 0.18,
+          shadowRadius: 1.0,
+          elevation: rawTheme.elevations.level1,
+        },
       },
-    },
-    navigationTheme: {
-      primary: rawTheme.colors.primary,
-      background: rawTheme.colors.surface,
-      card: rawTheme.colors.surfaceContainer,
+      navigationTheme: {
+        primary: rawTheme.colors.primary,
+        background: rawTheme.colors.surface,
+        card: rawTheme.colors.surfaceContainer,
+      },
     },
   };
 };

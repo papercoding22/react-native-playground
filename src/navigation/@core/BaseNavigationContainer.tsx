@@ -8,7 +8,7 @@ import {
 
 import {useColorScheme} from 'react-native';
 
-import useTheme from '@/theme/useTheme';
+import {useTheme} from '@/theme';
 
 const BaseNavigationContainer: React.FC<React.PropsWithChildren> = ({
   children,
@@ -20,8 +20,8 @@ const BaseNavigationContainer: React.FC<React.PropsWithChildren> = ({
     ...navigationTheme,
     colors: {
       ...navigationTheme.colors,
-      primary: theme.navigationTheme.primary,
-      background: theme.navigationTheme.background,
+      primary: theme.components.navigationTheme.primary,
+      background: theme.components.navigationTheme.background,
       card: theme.colors.surfaceContainer,
     },
   };

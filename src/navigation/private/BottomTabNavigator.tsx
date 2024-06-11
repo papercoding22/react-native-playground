@@ -2,7 +2,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {SvgProps} from 'react-native-svg';
 import React from 'react';
 
-import useTheme from '@/theme/useTheme';
+import {useTheme} from '@/theme';
 import {
   ActivityStackScreen,
   CommunityStackScreen,

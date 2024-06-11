@@ -1,11 +1,16 @@
-import {View, Text} from 'react-native';
 import React from 'react';
+import {ScrollView} from 'react-native';
+
+import {Layout} from '@/components';
+import {ProductListView} from '@/features';
 
 const FeaturedView = () => {
   return (
-    <View>
-      <Text>FeaturedView</Text>
-    </View>
+    <ScrollView>
+      <Layout className="flex p-4">
+        <ProductListView />
+      </Layout>
+    </ScrollView>
   );
 };
 

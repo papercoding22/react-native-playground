@@ -1,7 +1,7 @@
 import React from 'react';
 import {useRoute} from '@react-navigation/native';
 
-import useTheme from '@/theme/useTheme';
+import {useTheme} from '@/theme';
 import {TabMap} from './BottomTabNavigator';
 
 const BottomTabBarIcon = ({
