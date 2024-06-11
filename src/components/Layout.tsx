@@ -1,19 +1,19 @@
 import {View as RNView, ViewProps, ViewStyle} from 'react-native';
 import React, {PropsWithChildren} from 'react';
-import useTheme from '@/theme/useTheme';
+import {useTheme} from '@/theme';
 
 interface Props {
   style?: ViewStyle;
 }
 
-const View: React.FC<Props & PropsWithChildren & ViewProps> = ({
+const Layout: React.FC<Props & PropsWithChildren & ViewProps> = ({
   style,
   children,
   ...rest
 }) => {
   const theme = useTheme();
   const _style: ViewStyle = {
-    backgroundColor: theme.colors.surfaceContainer,
+    backgroundColor: theme.components.layout.background,
   };
 
   return (
@@ -23,4 +23,4 @@ const View: React.FC<Props & PropsWithChildren & ViewProps> = ({
   );
 };
 
-export default View;
+export default Layout;

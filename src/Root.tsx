@@ -5,7 +5,7 @@ import ErrorBoundary from 'react-native-error-boundary';
 import {IconRegistry} from '@ui-kitten/components';
 import {EvaIconsPack} from '@ui-kitten/eva-icons';
 
-import {ThemeProvider} from '@/theme';
+import ThemeProvider from '@/theme';
 import {store} from '@/store';
 import {ServiceProvider} from '@/providers';
 import {AppNavigation} from './navigation';

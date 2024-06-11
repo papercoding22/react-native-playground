@@ -5,7 +5,7 @@ import {
   Text,
   ListItem as UIKittenListItem,
 } from '@ui-kitten/components';
-import useTheme from '@/theme/useTheme';
+import {useTheme} from '@/theme';
 
 interface Props extends ListItemProps {
   title: string;
@@ -15,7 +15,7 @@ interface Props extends ListItemProps {
 const ListItem: React.FC<Props> = ({title, description, ...rest}) => {
   const theme = useTheme();
   const backgroundStyle = {
-    backgroundColor: theme.colors.surfaceContainerHigh,
+    backgroundColor: theme.components.card.background,
   };
   return (
     <UIKittenListItem

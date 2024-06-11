@@ -3,20 +3,20 @@ import {ThemeContextProps} from '@/theme/ThemeProvider';
 import {ViewStyle} from 'react-native';
 import {Tab, Text, TextProps} from '@ui-kitten/components';
 import {RenderProp} from '@ui-kitten/components/devsupport';
-import useTheme from '@/theme/useTheme';
+import {useTheme} from '@/theme';
 
 const useGetTextStyle = (focused: boolean, theme: ThemeContextProps) => {
   const focusedTextStyle: ViewStyle = useMemo(() => {
     return {
-      ...theme.topTabBar.focusedTextStyle,
+      ...theme.components.topTabBar.focusedTextStyle,
     };
-  }, [theme.topTabBar.focusedTextStyle]);
+  }, [theme.components.topTabBar.focusedTextStyle]);
 
   const unfocusedTextStyle: ViewStyle = useMemo(() => {
     return {
-      ...theme.topTabBar.unfocusedTextStyle,
+      ...theme.components.topTabBar.unfocusedTextStyle,
     };
-  }, [theme.topTabBar.unfocusedTextStyle]);
+  }, [theme.components.topTabBar.unfocusedTextStyle]);
 
   return focused ? focusedTextStyle : unfocusedTextStyle;
 };

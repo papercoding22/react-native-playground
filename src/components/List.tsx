@@ -1,5 +1,5 @@
 import React from 'react';
-import useTheme from '@/theme/useTheme';
+import {useTheme} from '@/theme';
 import {ListProps, List as UIKittenList} from '@ui-kitten/components';
 import {ViewStyle} from 'react-native';
 

@@ -1,4 +1,4 @@
-import {Theme} from './types/types';
+import {BaseTheme} from './types/types';
 
 import {
   primaryPalette,
@@ -137,7 +137,7 @@ const base = {
   },
 };
 
-const light: Theme = {
+const light: BaseTheme = {
   ...base,
   colors: {
     primary: primaryPalette.primary, // #196eee
@@ -156,22 +156,25 @@ const light: Theme = {
     onError: errorPalette['error-high-100'], // #ffffff
     errorContainer: errorPalette['error-high-60'], // #e1a8a5
     onErrorContainer: errorPalette['error-low-70'], // #360b09
-    surface: neutralPalette['neutral-high-10'], // #eaf2fd
-    onSurface: neutralPalette['neutral-low-100'], // #000000
-    onSurfaceVariant: neutralPalette['neutral-low-60'], // #5d6065
-    surfaceContainerLowest: neutralPalette['neutral-low-20'], // #bac1ca
-    surfaceContainerLow: neutralPalette['neutral-low-10'], // #d1d9e4
-    surfaceContainer: neutralPalette.neutral, // #e8f1fd
-    surfaceContainerHigh: neutralPalette['neutral-high-10'], // #eaf2fd
-    surfaceContainerHighest: neutralPalette['neutral-high-20'], // #edf4fd
-    outline: neutralPalette['neutral-low-50'], // #74797f
-    outlineVariant: neutralPalette['neutral-low-40'], // #8b9198
-    shadow: neutralPalette['neutral-low-90'], // #171819
-    scrim: neutralPalette['neutral-low-90'], // #171819
+    // Surface - default background color
+    surface: neutralPalette.neutral,
+    onSurface: neutralPalette['neutral-low-100'],
+    onSurfaceVariant: neutralPalette['neutral-low-80'],
+    // Surface Container - for navigation area, like header, tab bar, card container
+    surfaceContainerLowest: neutralPalette['neutral-high-10'],
+    surfaceContainerLow: neutralPalette['neutral-high-20'],
+    surfaceContainer: neutralPalette['neutral-high-50'],
+    surfaceContainerHigh: neutralPalette['neutral-high-80'],
+    surfaceContainerHighest: neutralPalette['neutral-high-90'],
+
+    outline: neutralPalette['neutral-low-50'],
+    outlineVariant: neutralPalette['neutral-low-40'],
+    shadow: neutralPalette['neutral-low-90'],
+    scrim: neutralPalette['neutral-low-90'],
   },
 };
 
-const dark: Theme = {
+const dark: BaseTheme = {
   ...base,
   colors: {
     primary: `${primaryPalette['primary-high-20']}`,
@@ -193,11 +196,11 @@ const dark: Theme = {
     surface: `${neutralPalette['neutral-low-90']}`,
     onSurface: `${neutralPalette['neutral-high-90']}`,
     onSurfaceVariant: `${neutralPalette['neutral-high-70']}`,
-    surfaceContainerLowest: `${neutralPalette['neutral-high-100']}`,
-    surfaceContainerLow: `${neutralPalette['neutral-high-90']}`,
+    surfaceContainerLowest: `${neutralPalette['neutral-low-100']}`,
+    surfaceContainerLow: `${neutralPalette['neutral-low-90']}`,
     surfaceContainer: `${neutralPalette['neutral-low-80']}`,
-    surfaceContainerHigh: `${neutralPalette['neutral-high-50']}`,
-    surfaceContainerHighest: `${neutralPalette['neutral-high-40']}`,
+    surfaceContainerHigh: `${neutralPalette['neutral-low-70']}`,
+    surfaceContainerHighest: `${neutralPalette['neutral-low-50']}`,
     outline: `${neutralPalette['neutral-high-50']}`,
     outlineVariant: `${neutralPalette['neutral-high-60']}`,
     shadow: `${neutralPalette['neutral-low-100']}`,

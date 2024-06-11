@@ -2,7 +2,7 @@ import {ViewStyle} from 'react-native';
 import React, {useCallback, useMemo} from 'react';
 import {MaterialTopTabBarProps} from '@react-navigation/material-top-tabs';
 import {TabBar} from '@ui-kitten/components';
-import useTheme from '@/theme/useTheme';
+import {useTheme} from '@/theme';
 
 import TabItem from './TabItem';
 
@@ -21,20 +21,24 @@ const TopTabBar: React.FC<Props> = ({navigation, state, tabItems}) => {
 
   const tabBarStyle: ViewStyle = useMemo(() => {
     return {
-      ...theme.topTabBar.shadow,
+      ...theme.components.topTabBar.shadow,
       justifyContent: 'space-around',
-      backgroundColor: theme.topTabBar.background,
+      backgroundColor: theme.components.topTabBar.background,
     };
-  }, [theme.topTabBar.background, theme.topTabBar.shadow]);
+  }, [
+    theme.components.topTabBar.background,
+    theme.components.topTabBar.shadow,
+  ]);
 
   const indicatorStyle: ViewStyle = useMemo(() => {
     return {
-      backgroundColor: theme.topTabBar.indicatorStyle.backgroundColor,
-      width: theme.topTabBar.indicatorStyle.width,
+      backgroundColor:
+        theme.components.topTabBar.indicatorStyle.backgroundColor,
+      width: theme.components.topTabBar.indicatorStyle.width,
     };
   }, [
-    theme.topTabBar.indicatorStyle.backgroundColor,
-    theme.topTabBar.indicatorStyle.width,
+    theme.components.topTabBar.indicatorStyle.backgroundColor,
+    theme.components.topTabBar.indicatorStyle.width,
   ]);
 
   const handleSelectTab = useCallback(

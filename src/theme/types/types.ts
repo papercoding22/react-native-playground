@@ -1,7 +1,7 @@
 // -------------------
 // Colors
 
-import {TextStyle} from 'react-native';
+import {TextStyle, ViewStyle} from 'react-native';
 
 // -------------------
 interface Colors {
@@ -106,14 +106,61 @@ interface ShapeScale {
   full: number;
 }
 
+interface ComponentTheme {
+  layout: {
+    background: string;
+  };
+  card: {
+    background: string;
+  };
+  bottomTabBar: {
+    background: string;
+    shadow: {
+      shadowColor: string;
+      shadowOffset: {
+        width: number;
+        height: number;
+      };
+      shadowOpacity: number;
+      shadowRadius: number;
+      elevation: number;
+    };
+  };
+  topTabBar: {
+    background: string;
+    indicatorStyle: ViewStyle;
+    focusedTextStyle: TextStyle;
+    unfocusedTextStyle: TextStyle;
+    shadow: {
+      shadowColor: string;
+      shadowOffset: {
+        width: number;
+        height: number;
+      };
+      shadowOpacity: number;
+      shadowRadius: number;
+      elevation: number;
+    };
+  };
+  navigationTheme: {
+    primary: string;
+    background: string;
+    card: string;
+  };
+}
+
 // -------------------
 // Theme
 // -------------------
-interface Theme {
+
+export interface BaseTheme {
   colors: Colors;
   typeScale: TypeScale;
   shape: ShapeScale;
   elevations: Elevations;
+}
+interface Theme extends BaseTheme {
+  components: ComponentTheme;
 }
 
 export type {Colors, Elevations, ShapeScale, TypeScale, Theme};
